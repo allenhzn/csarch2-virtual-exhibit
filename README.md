@@ -32,7 +32,7 @@ Alternative:
 - **Topic Change:** Previous proposed topic of Password Life Cycle got rejected and changed to Instruction-Level Pipelining
 - **Tentative Style Change:** Mockup images changed to be less "slide-like" and focus more on the mockup for the simulation + interactive element (user slider)
 
-## 1. Topic Theme
+## I. Topic Theme
 
 ### An in-depth dive into Instruction-Level Parallelism and Pipelining
 
@@ -40,15 +40,36 @@ This topic explores the concept of Instruction-Level Parallelism (ILP) in CPUs, 
 
 The exhibit then focuses on the implementation of **pipelining**, the primary method for achieving ILP in CPUs. Through its interactive simulation of pipelining, the users will be able to visualize instruction execution both before and after pipelining is implemented, enabling them to understand the necessity of the technique. Besides this, the exhibit will also contain simulations for common pipelining hazards – it will show data and branch hazards, along with the techniques used to address them such as pipeline flushes and stalls.
 
-## 2. Interactive Element
+---
 
-The primary interactive element is a simulation of CPU instruction pipelining. The exhibit will first display CPUs executing instructions without pipelining, showing how the full fetch, decode, execute, write-back cycle gets executed for every instruction sequentially. A slider is provided allowing the user to increase the number of instructions and see the corresponding increase in time for the simulation to complete.
+**Exhibit Flow**
+* **Hero Section**
+  * Project Title and Hook
+  * Group Member Credits
+* **Why Pipelining Exists**
+  * Concept: The Sequential Bottleneck
+  * Interactive Element: Workload Slider (State 1: Circular Loop Bottleneck)
+* **What is Pipelining**
+  * Concept: The Factory Assembly Line (5-Stage RISC Architecture)
+  * Interactive Element: Workload Slider (State 2: Fully Utilized Parallel Grid)
+* **The Danger (Pipeline Hazards)**
+  * Concept: Timing Conflicts and Data Dependencies
+  * Interactive Element: Step-by-Step Traffic Jam (3-Instruction Cycle Trace)
+* **Solutions (Hardware Interventions)**
+  * Concept: Interlocking and Data Forwarding (Bypass Circuits)
+  * Interactive Element: Permanent Bypass Routing (Live Data Path Visualizer)
 
-Then, the simulation will provide the option to enable pipelining. It will demonstrate visually how the instructions get executed in parallel, with different instructions in different stages as the CPU executes them simultaneously. The slider will enable the user to see how despite the same increase in load, the CPU maintains faster execution speeds this time through pipelining.
+---
 
-The simulation will then allow the user to simulate pipelining hazard scenarios such as branch hazards and data hazards, explaining how they occur and visualizing the process. Then, the simulation will also give the user the opportunity to utilize techniques such as pipeline flushing and pipeline stalling to avoid these hazard scenarios, with the time cost of both techniques properly visualized.
+## II. Interactive Element
 
-## 3. Tech Stack Plan
+The primary interactive element is a live simulation of CPU instruction pipelining. The exhibit initially displays a CPU executing instructions sequentially without pipelining (State 1), demonstrating how the complete fetch, decode, execute, memory, and write-back path must clear for every individual instruction. An interactive workload slider is provided, allowing the user to increase the instruction load to see the immediate sequential bottleneck and resource waste as instructions pile up outside the single execution loop.
+
+The simulation also represents the parallel pipeline layout. The horizontal grid demonstrates visually how instructions execute in parallel across different stages simultaneously. The workload slider remains active, enabling the user to see how the CPU handles the exact same increase in load while maintaining faster execution speeds and peak hardware utilization through parallel processing.
+
+The simulation then features a cycle-by-cycle tracing mode for a specific data hazard scenario. The animation tracks the exact moment a dependent instruction checks the registers, triggers a data hazard alert, and forces the hardware to inject empty stall bubbles. This automated cycle progression explicitly visualizes the timing penalty and traffic jam that freezes all subsequent downstream instructions. The simulation concludes by allowing the user to engage a data forwarding bus via an architectural toggle, visually routing fixed bypass paths across the stages so they can watch data flow directly from the ALU output back into the execution stage in real-time, completely clearing the stalls to restore 100% execution efficiency.
+
+## IV. Tech Stack Plan
 
 | Component | Technology | Application & Justification |
 | :---- | :---- | :---- |
@@ -58,11 +79,19 @@ The simulation will then allow the user to simulate pipelining hazard scenarios 
 | UI Components | React & TypeScript | Manages the complex, dynamic state of the interactive branch prediction simulator. |
 | Styling | Tailwind CSS | Handles mobile-responsive UI and hardware-themed styling via utility classes. |
 
-## 4. Tentative Style
+## V. Tentative Style
+
+| Design Component | Design Specification & Details |
+| :--- | :--- |
+| **Theme Name** | **Digital Retro / Legacy BVT32 BIOS** |
+| **Color Palette** | <ul><li>`#03071E` (Darkest BIOS Navy)</li><li>`#0A1128` (Deep Terminal Blue)</li><li>`#FFFF55` (Bright Yellow)</li><li>`#FFFFFF` (Crisp White)</li><li>`#FF5555` (Flashing Red)</li><li>`#55FFFF` (Neon Cyan)</li></ul> |
+| **Typography** | <ul><li>**Headings:** `VT323` or `Share Tech Mono`</li><li>**Body & Terminals:** `Courier New` or standard monospace text</li></ul> |
 
 ### Mobile-responsive layout
 
 The website will be usable and responsive on mobile devices due to the lack of advanced features that would necessitate a desktop device. There will be no intensive calculations on the client side, and the layout of the simulation and controls can easily be adjusted to accommodate for mobile devices given the chosen technologies like Tailwind CSS and React.
+
+---
 
 ![No pipeline 1](./images/3.png)
 ![No pipeline 2](./images/4.png)
