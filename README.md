@@ -12,7 +12,7 @@ Group 4 - S01
 
 ## Proposal Revisions
 
-**Previous Feedback**:
+### Previous Feedback
 
 ```
 Topic disapproved.
@@ -27,9 +27,10 @@ Alternative:
 *mobile network evolution
 ```
 
-- **Key Changes Made:**
-  - **Topic Change:** Previous proposed topic of Password Life Cycle got rejected and changed to Instruction-Level Pipelining
-  - **Tentative Style Change:** Mockup images changed to be less "slide-like" and focus more on the mockup for the simulation + interactive element (user slider)
+### Key Changes Made
+
+- **Topic Change:** Previous proposed topic of Password Life Cycle got rejected and changed to Instruction-Level Pipelining
+- **Tentative Style Change:** Mockup images changed to be less "slide-like" and focus more on the mockup for the simulation + interactive element (user slider)
 
 ## 1. Topic Theme
 
